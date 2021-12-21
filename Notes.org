@@ -1,0 +1,159 @@
+#+TITLE: Notes - URLLC Optimization
+#+OPTIONS: toc:2
+
+* Methodology
++ Read first two sections and conclusion
++ Most Papers talk about Channel Access Delay but we want to minimze network delay
+*  TODO
+** Lookups - Paper Wise
+*** 1
++ Physical Layer Channel Modeling
++ URLLC Trans Schemes
++ PDP (Power Delay Profile), Delay Spread
+** Lookup
+1. Schemes
+2. OFDMA Systems
+3. SINR
+4. Define system Params in Network Dummies
+** Reading
++ Ch-6 CompNet Notes (Aloha - 6.4.3)
+* Spreadsheet
+| S. No. | Title                                         | Target Problem | Approach Used | Limitations |
+|--------+-----------------------------------------------+----------------+---------------+-------------|
+|      1 | UR Comm for Ind IoT                           |                |               |             |
+|      2 | Res Alloc & HARQ Opt for URLLC Traffic        |                |               |             |
+|      3 | Delay Aware Pr Access Class for mMTC          |                |               |             |
+|      4 | QoS & Privacy Aware Routing for Ind IoT       |                |               |             |
+|      5 | QoS Diff Scheduling of URLLC under FIFO       |                |               |             |
+|      6 | Priority S-ALOHA for URLLC                    |                |               |             |
+|      7 | Min Delay Violation in URLLC for fading chann |                |               |             |
+|      8 | URLLC and eMBB coexist in unlicense spectrum  |                |               |             |
+|      9 | Delay Perf of MISO Wireless comm              |                |               |             |
+|     10 | Enabling Critical mMTC                        |                |               |             |
+* Shared by Ma'am
+** Ultra Reliable Comm for Industrial IoT
+:LOGBOOK:
+CLOCK: [2021-12-21 Tue 04:47]--[2021-12-21 Tue 05:12] =>  0:25
+:END:
+*** Readings
+1. https://en.wikipedia.org/wiki/Diversity_scheme
+2.
+*** Abstract
++ Factory Automation, Smart Factories, Automated Warehouses
++ Diversity for high reliability, short packets for low latency,  On-the-fly Channel Estimation, Decoding for fast receiver processing.
++ Ray Tracing Channel Simulation
+*** Introduction
+**** Their Lit Review
++ Factory automation merges operational, information, and communication technologies with cyber-physical systems.
++ Main Diff: Focus on mMTC and URLLC for machine connectivity.
++ URLLC vital for mission-critical communications (Latency of 1ms with 99.999% reliability)
++ URLLC Transmission Schemes:
+  1. Diversity Techniques
+  2. Short Packets within a short TTI (Trans Time Intvl)
+  3. Fast Receiver Processing (Turbo codes for data channel and polar codes for control channels)[fn:3]
++ Physical Layer Channel Modeling for design and evaluation of URC.
++ This work emphasizes that the abundance of metallic scatterers present in the industrial environment causes dense multipath scattering.
++ Special Topology and Dense Metallic Scatterers are significant differences between ind, office and residential propogation environments.
++ Temporal evolution of Rich Multipath Components (MPCs) in delay domain, neglecting space domain.
+**** Proposal
++ 5G system arch for IIoT services in automated warehouse.
++ Use Cases: Sensor Monitoring, Cooperative Motion Control, Video Operated Remote Control
++ Transmission Scheme Evaluation by RT channel models at 28 and 60 GHz.
++ Time evolution of delay and doppler power spectra over automation process presented
+**** Organization
++ Proposed Model
++ Use Cases Presented
++ Channel Model Requirements
++ Analysis
+*** 5G CommSys For IIoT
+**** System Architecture
++ Components of system
+  1. Access: Provides radio connectivity between devices and 5G access nodes.
+  2. Transport Network: Interconnected via backbone nodes which carry information from access nodes to hosting cloud
+  3. Management
+  4. Cloud: Poweful processing capabilities that allow for storage, management.
+  5. Applications: Data Storage and sharing, order entry, inventory management, financial accounting features. (Robot Grippers - Usecase: Quicker, reliable motion)
+#+ATTR_LATEX: :scale 0.50
+  [[./assets/p1f1.png]]
++ Considered Use Cases (Differing Latency Bounds)
+  1. Package Machine Control
+  2. Cooperative Machine Control
+  3. Mobile Crane Control
+  4. Video-Operated RC
+**** Key Technologies for URLLC-Based Services
++ Requirements: In =L= seconds, data packets having atmost =B= bytes transferred with a delay < =D= seconds in 99.9999% attempts.
++ Diversity/Redundancy:
+**** Industrial Channel Model
+***** Requirements
+1. Extreme Frequency Range
+2. Ultra-wide Bandwidth
+3. Support of massive MIMO antenna array
+4. Spatial Consistency
+***** Modeling and Characteristic analysis
++ For use-cases, Video-operated RC and Coop Motion Control
++ The mobile robots travel in different alleys to find the required objects.
++ When they are moving, the video-operated RC supports the autonomous navigation to detect any collisions and stop it immediately.
++ After mobile robots come to layered shelves with the needed item, they're under cooperative motion control to detect items, pick them up, or drop them.
+***** FIXME RT Simulation
++ Inherently spatially consistent
++ Only few material parameters to be calibrated by measurements
++ HPC CloudRT: http://raytracer.cloud/
+#+ATTR_LATEX: :size 0.50
+  [[./assets/p1f2.png]]
++
+*** Conclusion
+Due to shorter wavelength of 60 GHz, reflected MPCs with high power increase, and then the strong paths supporting reliable radio links are enhanced. Diversity in frequency and space dimensions are demonstrated where 60 GHz channel has high diversity orders, and has possible effective combining at end user level.
+** Resource Allocation and HARQ Optimization for URLLC Traffic in 5G Wireless Network
+*** Abstract
++ URLLC Requirements:
+  1. Low Packet Delays (< 1ms)
+  2. High Reliability (~99.999%)
++ /Downlink/[fn:2] URLLC traffic using queuing network-based model for wireless system.
++ Effect of design choices on:
+  1. System Parameters (Bandwidth, Link, SINR(Signal to interference plus noise ratio), QoS)
+  2. Resource Allocation Scheme in OFDMA (Orthogonal FQ Division Multiple Access) systems
+  3. Hybrid Automatic Repeat Request Schemes (HARQ is combination of high-rate Fwd Error Correction and Automatic Repeat Request Error-Control)
++ Focus on:
+  1. Minimum bandwidth to support given URLLC load scale with associated QoS constraints
+  2. Characterization of optimal OFDMA resource allocation schemes that maximize admissible URLLC load
+  3. Optimization of a repetition code-based packet re-transmission scheme.
+*** Introduction
++ URLLC Applications: Industrial Automation, Mission Critical Traffic, VR, etc.
++ Downlink transmission of URLLC traffic in FDD (Freq Division Duplex) with separate fq bands for uplink and downlink is considered.
++ QoS Requirements: Packet Size =L= bits, Max. end-to-end delay between Rx and BS: =d= secs, Probability= 1-\delta.
++ Typical Values: L=32 bytes, d=1ms, \delta = 10^{-6}.
++ Delay includes: Queuing delay at BS, transmission duration, rx processing delay, packet decoding feedback transmission duration, time to make further transmissions.
++ Studies the impact of design choices on URLLC /capacity/ (load). Impact of:
+  1. Sys BW: =W=, User SINR, QoS Params =d=, \delta.
+  2. /Resource allocation/ in time-fq plane of OFDMA (packets are allocated different parts of a time-fq plane for data transmission) system.
+  3. HARQ schemes on URLLC Capacity.
++ A URLLC packet can be scheduled as /tall/ transmissions which use large W over longer d or /wide/ trnsms that use small W for short d.
++ Tall trnsms result in reduced tx times for packets but number of concurrent trx also reduces which might result in queuing or blocking of URLLC packets due to unavailability of W.
++ Wide trxs permit higher number of concurrent trxs but with longer trxs times for each packet which may lead to bandwidth scarcity.
++ HARQ schemes' analysis might help in evaluating max. no. of re-trxs allowed and reliability (coding scheme) to be targeted after each trx.
+** Delay-aware Priority Access Classification for Massive Machine-type Communication
+* Initial Picks
+* Basics
+** 5-G Network (NR: New Radio) (Ref: Intelli Resource Slicing: Deep RL approach)
++ Services provided:
+  1. *URLLC* (Ultra-Reliable Low Latency Communication): Target /mission critical/ communications such as autonomous vehicles, tactile internet and remote surgery. /Sporadic with short packet size/ and /relatively low data rate/. Due to need of LL, they are localized in time with /short transmission time intervals/ (sTTI). Requirements: High reliability i.e. PER < 10^{-5} and low latency.
+  2. *eMBB* (Enhanced Mobile Broadband): Focus on high data rate application (4K, VR). Extension of LTE-Advanced broadband service that allows for higher data rate and coding over large transmission blocks for a long time interval. Hence, objective: /High data rate with moderate reliability and packet error rate (PER) < 10^{-3}./
+  3. *mMTC* (Massive Machine-Type Communications): Aims at serving large number of IoT devices sending data /sporadically/ with /low and fixed uplink transmission rate/. Focus on energy efficiency.
++ Comparison with 4G systems
+  1. In 4G systems, control signaling takes a large portion of transmission latency (0.3-0.4ms). So designing a short packet transmission system with latency of 0.5ms might cause waste of > 60% resources for control overheads[fn:1].
+  2. To support URLLC services, changes in physical layer design of 5G NR systems have been made.
+  3. /Physical Layer Enabler/
++ Resource Slicing Problem: \\
+  Aims at maximizing eMBB data rate subject to URLLC reliability constraint, while considering variance of eMBB data rate to reduce impact of immediately scheduled URLLC traffic on eMBB reliability. DRL Approach:
+  1. /eMBB resource allocation phase/: Optimization problem decomposed into three subproblems which are each transformed into convex form to obtain /approximate/ allocation solution.
+  2. /URLLC scheduling phase/: DRL based algorithm is proposed to intelligently distribute incoming URLLC traffic among eMBB users.
++ Proposed approach satisfies stringent URLLC reliability while keeping eMBB reliability > 90%.
+** Network Theory for Dummies
+** Telecommunications
+1. FDM: Technique by which total bandwidth available in communication medium is divided into a series of non-overlapping frequency bands, each of which is used to carry a separate signal. (Allows for quicker transmission and parallelization). /e.g. Radio, Cable TV/.
+2. OFDM: Specialized FDM with the additional constraint that all subcarrier signals within a communication channel are orthogonal to each other i.e. /crosstalk/ between the sub-channels is eliminated and the inter-carrier guard bands are not needed which simplifies the design of transmitter and receiver. Here a separate filter for each sub-channel is not needed.
+3. OFDMA: Multi-user version of OFDM, multiple access is achieved by assigning subsets of subcarriers to individual users which allows for simultaneous low-data rate transmission from several users.
+* Footnotes
+[fn:1] Data that you send across a wireless network is housed in a data envelope called a /packet/. Each transmission includes additional information, called /overhead/, that is required to route the data to the proper location. Network control mechanisms, such as scheduling, routing, and flow control, ensure effective data transport in a communication network, but also require the exchange of network state information, such as channel conditions and queue-length information, which amounts to /control overhead/. [[http://cnrg.mit.edu/protocol-information][REF]]
+[fn:2] Link from satellite to ground station or transmission path from cell site to cell phone.
+[fn:3] The common control channel (CCCH), used for transmission of control information in conjunction with random access. The dedicated control channel (DCCH), used for transmission of control information to/from a device. [[https://klevas.mif.vu.lt/~skersys/vsd/turbo/0429hage.pdf][Paper about Coding]]
