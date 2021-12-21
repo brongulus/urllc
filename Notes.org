@@ -131,6 +131,7 @@ Due to shorter wavelength of 60 GHz, reflected MPCs with high power increase, an
 + Tall trnsms result in reduced tx times for packets but number of concurrent trx also reduces which might result in queuing or blocking of URLLC packets due to unavailability of W.
 + Wide trxs permit higher number of concurrent trxs but with longer trxs times for each packet which may lead to bandwidth scarcity.
 + HARQ schemes' analysis might help in evaluating max. no. of re-trxs allowed and reliability (coding scheme) to be targeted after each trx.
++ /Mini-slot/ level access to radio resource for URLLC with durations of 0.125-0.25 ms whereas eMBB traffic has slot durations of 1ms or more.
 ** Delay-aware Priority Access Classification for Massive Machine-type Communication
 * Initial Picks
 * Basics
