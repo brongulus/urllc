@@ -2,8 +2,14 @@
 #+OPTIONS: toc:2
 
 * Methodology
-+ Read first two sections and conclusion
-+ Most Papers talk about Channel Access Delay but we want to minimze network delay
++ +Read first two sections and conclusion+
++ Most Papers talk about Channel Access Delay but we want to minimize network delay
++ Focus on the three papers:
+  1. Delay Aware Priority Access Classification for mMTC
+  2. Prioritized S-ALOHA for URLLC
+  3. ???
++ Attempt to gain thorough understanding of these papers and try to see if network based queueing model can be implemented emulating their ideas
++ Focus more on the *math*.
 *  TODO
 ** Lookups - Paper Wise
 *** 1
@@ -150,6 +156,12 @@ Due to shorter wavelength of 60 GHz, reflected MPCs with high power increase, an
   1. /eMBB resource allocation phase/: Optimization problem decomposed into three subproblems which are each transformed into convex form to obtain /approximate/ allocation solution.
   2. /URLLC scheduling phase/: DRL based algorithm is proposed to intelligently distribute incoming URLLC traffic among eMBB users.
 + Proposed approach satisfies stringent URLLC reliability while keeping eMBB reliability > 90%.
+** HARQ
+*** ARQ
+When the  sender doesn’t receive Acknowledgement (ACK) before timeout, the receiver discards the bad packet and sender re-transmits the packet.
+*** Soft Combining
+Soft Combining is an error correction technique in which bad packets are not discarded but stored in a buffer. Idea being that 2 or more packets received with insufficient information can be combined together so that total signal can be decoded.
+*** HARQ
 ** Network Theory for Dummies
 ** Telecommunications
 1. FDM: Technique by which total bandwidth available in communication medium is divided into a series of non-overlapping frequency bands, each of which is used to carry a separate signal. (Allows for quicker transmission and parallelization). /e.g. Radio, Cable TV/.
