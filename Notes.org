@@ -17,6 +17,7 @@
 4. Define system Params in Network Dummies
 ** Reading
 + Ch-6 CompNet Notes (Aloha - 6.4.3)
++ [[https://www.techplayon.com/hybrid-automatic-repeat-request-harq-in-lte-fdd/][HARQ]]
 * Spreadsheet
 | S. No. | Title                                         | Target Problem | Approach Used | Limitations |
 |--------+-----------------------------------------------+----------------+---------------+-------------|
