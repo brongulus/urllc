@@ -1,5 +1,9 @@
 #+TITLE: Notes - URLLC Optimization
-#+OPTIONS: toc:2
+#+OPTIONS: toc: 2
+#+LATEX_HEADER: \documentclass[12pt,letterpaper]{book}
+#+LATEX_HEADER: \usepackage[margin=1 in]{geometry}
+#+LATEX_HEADER: \renewcommand{\baselinestretch}{1.25}
+# #+STARTUP: overview
 
 * Methodology
 + +Read first two sections and conclusion+
@@ -21,6 +25,7 @@
 2. OFDMA Systems
 3. SINR
 4. Define system Params in Network Dummies
+5. https://www.sierrawireless.com/iot-blog/what-is-5g-nr/
 ** Reading
 + Ch-6 CompNet Notes (Aloha - 6.4.3)
 + [[https://www.techplayon.com/hybrid-automatic-repeat-request-harq-in-lte-fdd/][HARQ]]
@@ -140,6 +145,10 @@ Due to shorter wavelength of 60 GHz, reflected MPCs with high power increase, an
 + HARQ schemes' analysis might help in evaluating max. no. of re-trxs allowed and reliability (coding scheme) to be targeted after each trx.
 + /Mini-slot/ level access to radio resource for URLLC with durations of 0.125-0.25 ms whereas eMBB traffic has slot durations of 1ms or more.
 ** Delay-aware Priority Access Classification for Massive Machine-type Communication
+*** Abstract
+   + mMTC: Large number of devices access a base station simultaneously for transmitting data, leading to congestion.
+   + To accomodate large number of simultaneous arrivals, efficient congestion control techniques incorporated.
+   + 
 * Initial Picks
 * Basics
 ** 5-G Network (NR: New Radio) (Ref: Intelli Resource Slicing: Deep RL approach)

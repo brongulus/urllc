@@ -1,4 +1,4 @@
-% Created 2021-12-22 Wed 12:54
+% Created 2022-01-10 Mon 15:45
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -12,6 +12,9 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
+\documentclass[12pt,letterpaper]{book}
+\usepackage[margin=1 in]{geometry}
+\renewcommand{\baselinestretch}{1.25}
 \author{Prashant Tak}
 \date{\today}
 \title{Notes - URLLC Optimization}
@@ -25,10 +28,9 @@
 \begin{document}
 
 \maketitle
-\setcounter{tocdepth}{2}
 \tableofcontents \clearpage
 \section{Methodology}
-\label{sec:orga65714f}
+\label{sec:orga994fc9}
 \begin{itemize}
 \item \sout{Read first two sections and conclusion}
 \item Most Papers talk about Channel Access Delay but we want to minimize network delay
@@ -42,32 +44,33 @@
 \item Focus more on the \textbf{math}.
 \end{itemize}
 \section{TODO}
-\label{sec:orga86ec40}
+\label{sec:org470ce05}
 \subsection{Lookups - Paper Wise}
-\label{sec:org808428a}
+\label{sec:orgb652338}
 \subsubsection{1}
-\label{sec:org30bb111}
+\label{sec:orgeee5b1a}
 \begin{itemize}
 \item Physical Layer Channel Modeling
 \item URLLC Trans Schemes
 \item PDP (Power Delay Profile), Delay Spread
 \end{itemize}
 \subsection{Lookup}
-\label{sec:orgbb487b8}
+\label{sec:orgd194f47}
 \begin{enumerate}
 \item Schemes
 \item OFDMA Systems
 \item SINR
 \item Define system Params in Network Dummies
+\item \url{https://www.sierrawireless.com/iot-blog/what-is-5g-nr/}
 \end{enumerate}
 \subsection{Reading}
-\label{sec:org6d85366}
+\label{sec:org17a926b}
 \begin{itemize}
 \item Ch-6 CompNet Notes (Aloha - 6.4.3)
 \item \href{https://www.techplayon.com/hybrid-automatic-repeat-request-harq-in-lte-fdd/}{HARQ}
 \end{itemize}
 \section{Spreadsheet}
-\label{sec:org23a983e}
+\label{sec:org1c78ff2}
 \begin{center}
 \begin{tabular}{rllll}
 S. No. & Title & Target Problem & Approach Used & Limitations\\
@@ -85,27 +88,27 @@ S. No. & Title & Target Problem & Approach Used & Limitations\\
 \end{tabular}
 \end{center}
 \section{Shared by Ma'am}
-\label{sec:org0d34ed6}
+\label{sec:org85ce98c}
 \subsection{Ultra Reliable Comm for Industrial IoT}
-\label{sec:org25ab150}
+\label{sec:org158aaff}
 \subsubsection{Readings}
-\label{sec:org42f416e}
+\label{sec:orgeccfea8}
 \begin{enumerate}
 \item \url{https://en.wikipedia.org/wiki/Diversity\_scheme}
 \item 
 \end{enumerate}
 \subsubsection{Abstract}
-\label{sec:orga51f0fe}
+\label{sec:orgfe3e0b6}
 \begin{itemize}
 \item Factory Automation, Smart Factories, Automated Warehouses
 \item Diversity for high reliability, short packets for low latency,  On-the-fly Channel Estimation, Decoding for fast receiver processing.
 \item Ray Tracing Channel Simulation
 \end{itemize}
 \subsubsection{Introduction}
-\label{sec:orge9b3249}
+\label{sec:org1a2363d}
 \begin{enumerate}
 \item Their Lit Review
-\label{sec:orgce2059a}
+\label{sec:orgdf6e7c0}
 \begin{itemize}
 \item Factory automation merges operational, information, and communication technologies with cyber-physical systems.
 \item Main Diff: Focus on mMTC and URLLC for machine connectivity.
@@ -122,7 +125,7 @@ S. No. & Title & Target Problem & Approach Used & Limitations\\
 \item Temporal evolution of Rich Multipath Components (MPCs) in delay domain, neglecting space domain.
 \end{itemize}
 \item Proposal
-\label{sec:orgbb35a36}
+\label{sec:org9915e15}
 \begin{itemize}
 \item 5G system arch for IIoT services in automated warehouse.
 \item Use Cases: Sensor Monitoring, Cooperative Motion Control, Video Operated Remote Control
@@ -130,7 +133,7 @@ S. No. & Title & Target Problem & Approach Used & Limitations\\
 \item Time evolution of delay and doppler power spectra over automation process presented
 \end{itemize}
 \item Organization
-\label{sec:orgf96f23e}
+\label{sec:orgc77220d}
 \begin{itemize}
 \item Proposed Model
 \item Use Cases Presented
@@ -139,10 +142,10 @@ S. No. & Title & Target Problem & Approach Used & Limitations\\
 \end{itemize}
 \end{enumerate}
 \subsubsection{5G CommSys For IIoT}
-\label{sec:org60d64fc}
+\label{sec:org8f0bc40}
 \begin{enumerate}
 \item System Architecture
-\label{sec:org176c44e}
+\label{sec:org4dcecb3}
 \begin{itemize}
 \item Components of system
 \begin{enumerate}
@@ -166,16 +169,16 @@ S. No. & Title & Target Problem & Approach Used & Limitations\\
 \end{enumerate}
 \end{itemize}
 \item Key Technologies for URLLC-Based Services
-\label{sec:org09e6c6f}
+\label{sec:orgf2c3315}
 \begin{itemize}
 \item Requirements: In \texttt{L} seconds, data packets having atmost \texttt{B} bytes transferred with a delay < \texttt{D} seconds in 99.9999\% attempts.
 \item Diversity/Redundancy:
 \end{itemize}
 \item Industrial Channel Model
-\label{sec:org64df033}
+\label{sec:org5631000}
 \begin{enumerate}
 \item Requirements
-\label{sec:org4983211}
+\label{sec:org5d2e153}
 \begin{enumerate}
 \item Extreme Frequency Range
 \item Ultra-wide Bandwidth
@@ -183,7 +186,7 @@ S. No. & Title & Target Problem & Approach Used & Limitations\\
 \item Spatial Consistency
 \end{enumerate}
 \item Modeling and Characteristic analysis
-\label{sec:org9fed36b}
+\label{sec:org89109d3}
 \begin{itemize}
 \item For use-cases, Video-operated RC and Coop Motion Control
 \item The mobile robots travel in different alleys to find the required objects.
@@ -191,7 +194,7 @@ S. No. & Title & Target Problem & Approach Used & Limitations\\
 \item After mobile robots come to layered shelves with the needed item, they're under cooperative motion control to detect items, pick them up, or drop them.
 \end{itemize}
 \item FIXME RT Simulation
-\label{sec:org7525a15}
+\label{sec:org8e8adce}
 \begin{itemize}
 \item Inherently spatially consistent
 \item Only few material parameters to be calibrated by measurements
@@ -206,12 +209,12 @@ S. No. & Title & Target Problem & Approach Used & Limitations\\
 \end{enumerate}
 \end{enumerate}
 \subsubsection{Conclusion}
-\label{sec:org04c2c5c}
+\label{sec:org525ff5a}
 Due to shorter wavelength of 60 GHz, reflected MPCs with high power increase, and then the strong paths supporting reliable radio links are enhanced. Diversity in frequency and space dimensions are demonstrated where 60 GHz channel has high diversity orders, and has possible effective combining at end user level.
 \subsection{Resource Allocation and HARQ Optimization for URLLC Traffic in 5G Wireless Network}
-\label{sec:orgfd6656e}
+\label{sec:org58fdda3}
 \subsubsection{Abstract}
-\label{sec:org56d6a6a}
+\label{sec:org276ca3b}
 \begin{itemize}
 \item URLLC Requirements:
 \begin{enumerate}
@@ -233,7 +236,7 @@ Due to shorter wavelength of 60 GHz, reflected MPCs with high power increase, an
 \end{enumerate}
 \end{itemize}
 \subsubsection{Introduction}
-\label{sec:org1b58d24}
+\label{sec:orgd456daf}
 \begin{itemize}
 \item URLLC Applications: Industrial Automation, Mission Critical Traffic, VR, etc.
 \item Downlink transmission of URLLC traffic in FDD (Freq Division Duplex) with separate fq bands for uplink and downlink is considered.
@@ -253,13 +256,20 @@ Due to shorter wavelength of 60 GHz, reflected MPCs with high power increase, an
 \item \emph{Mini-slot} level access to radio resource for URLLC with durations of 0.125-0.25 ms whereas eMBB traffic has slot durations of 1ms or more.
 \end{itemize}
 \subsection{Delay-aware Priority Access Classification for Massive Machine-type Communication}
-\label{sec:org9c751c3}
+\label{sec:org4278c66}
+\subsubsection{Abstract}
+\label{sec:orgc949bfa}
+\begin{itemize}
+\item mMTC: Large number of devices access a base station simultaneously for transmitting data, leading to congestion.
+\item To accomodate large number of simultaneous arrivals, efficient congestion control techniques incorporated.
+\item 
+\end{itemize}
 \section{Initial Picks}
-\label{sec:org4332688}
+\label{sec:orgaca118b}
 \section{Basics}
-\label{sec:org475856f}
+\label{sec:orgceca03c}
 \subsection{5-G Network (NR: New Radio) (Ref: Intelli Resource Slicing: Deep RL approach)}
-\label{sec:org3c9d7ea}
+\label{sec:orgfebdc01}
 \begin{itemize}
 \item Services provided:
 \begin{enumerate}
@@ -282,19 +292,19 @@ Aims at maximizing eMBB data rate subject to URLLC reliability constraint, while
 \item Proposed approach satisfies stringent URLLC reliability while keeping eMBB reliability > 90\%.
 \end{itemize}
 \subsection{HARQ}
-\label{sec:org4fd2e7d}
+\label{sec:org75c33d9}
 \subsubsection{ARQ}
-\label{sec:orgb454535}
+\label{sec:org8daea7b}
 When the  sender doesn’t receive Acknowledgement (ACK) before timeout, the receiver discards the bad packet and sender re-transmits the packet.
 \subsubsection{Soft Combining}
-\label{sec:org5d3d276}
+\label{sec:orgeab692f}
 Soft Combining is an error correction technique in which bad packets are not discarded but stored in a buffer. Idea being that 2 or more packets received with insufficient information can be combined together so that total signal can be decoded.
 \subsubsection{HARQ}
-\label{sec:org8a8cdb8}
+\label{sec:org4abff98}
 \subsection{Network Theory for Dummies}
-\label{sec:org6151f6a}
+\label{sec:orga109c59}
 \subsection{Telecommunications}
-\label{sec:org0fabb19}
+\label{sec:org4b5cb93}
 \begin{enumerate}
 \item FDM: Technique by which total bandwidth available in communication medium is divided into a series of non-overlapping frequency bands, each of which is used to carry a separate signal. (Allows for quicker transmission and parallelization). \emph{e.g. Radio, Cable TV}.
 \item OFDM: Specialized FDM with the additional constraint that all subcarrier signals within a communication channel are orthogonal to each other i.e. \emph{crosstalk} between the sub-channels is eliminated and the inter-carrier guard bands are not needed which simplifies the design of transmitter and receiver. Here a separate filter for each sub-channel is not needed.
