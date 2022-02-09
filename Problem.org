@@ -1,0 +1,61 @@
+* Rough Draft 
+
+<Add factoids about URLLC>
+
+For this use case, the data rate is typically low and the challenge resides in designing protocols with very little overhead that exploits the available diversity to enhance
+the reliability
+
+Existing studies regarding delay critical transmission predominantly focus on minimizing channel delay, in the scenario where multiple UEs contest for channel access and URLLC packets are prioritized over regular ones to meet delay constraints. But after that's decided there's no further optimizations made to reduce the delay for the packet while travelling through the entire network. We try to tackle this by forming an optimization problem that maximizes regular performance and minimizes transmission delay for URLLC packets while ensuring URLLC requirements are satisfied.
+
+Since in URLLC communication, transmission requirements indicate low latency so small size packets are considered. We consider the scenario where at each node there are multiple packets arriving, the packets can be either routine (regular) or delay-critical (URLLC) packets. We represent packet arrival at a node in the network in the form of a queue. The M/G/1 queue model is considered [define state space: in terms of no. of URLLC packets at a node] ...
+
+[[./assets/node_queue.png]]
+
+Queueing Model Assumptions:
+1. Inter-arrival time distribution: Markovian exponential?
+2. Decision time: How long it takes for choosing the packet which is processed first
+3. Buffer size
+4. 
+
+The packets are assumed to arrive in a <assumption> fashion. At each node in the network a decision must be made regarding which packet is processed first:
+1. If there's only a single URLLC packet at a node, process it.
+2. What to do if there are multiple URLLC packets from different sources? 
+3. Regular packets follow FCFS schedule.
+
+
+* Things to look forward to
+So far, this has been focused on nodal analysis, but we need to move back a bit and look at the network as a whole, focus on computing the optimal path a packet should take at the start? Or is that decision taken node-by-node, if so the computational overhead and delay increases which is undesirable.
+
+WHY THESE ASSUMPTIONS, WHAT"S THE BASIS?
++ Assumptions/Suggestions start from here?
+  1. What kind of network model are we looking at?
+  2. What kind of application are we targeting?
+  3. How is the delay computation/packet selection done, rather who does it in the network? If the routers, how would they be configured?
+  4. If we're considering a graph based network, ...
+* Format for Conference Papers
++ Abstract (250 Words)
++ Overview/Problem Statement: Brief overview of your research topic and states the problem that you have identified through preliminary research. Must highlight the gap between the ideal situation and reality.
++ Proposed Method
++ Experimental Data and Analysis
++ Conclusion and References
+
+* Writing a Problem Statement [[https://www.scribbr.com/research-process/problem-statement/][Ref]]
++ Put the problem in *context* (What is already known?)
+  - Who What Where When Why
+  - When and where does the problem arise? 
+  - Who does the problem affect?
+  - What attempts have been made to solve it?
+  - What is already known about the problem?
++ Describe the *precise issue* that the research addresses (What do we need to know?)
++ Show the *relevance* of the problem (why do we need to know it?) What will happen if the problem is not solved?
++ Set the *objectives* of the research (what was done to find it out?)
+
+* Outline
+1. Identify Problem
+2. Begin statement with ideal situation
+3. Describe current gaps
+4. State consequences of problem
+5. Propose addressing the problem
+* Terminology
++ UE: User equipment
+

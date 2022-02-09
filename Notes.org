@@ -42,6 +42,32 @@
 |      8 | URLLC and eMBB coexist in unlicense spectrum  |                |               |             |
 |      9 | Delay Perf of MISO Wireless comm              |                |               |             |
 |     10 | Enabling Critical mMTC                        |                |               |             |
+* Problem Formulation/Identification
+** Channel delay v/s Network Delay
++ Channel: Starting from time when we have a packet to transmit to the time when the packet is put onto the channel.
++ Network: After the packet is placed on the channel, the delay incurred while transmitting from the beginning of the channel to the base station.
++ It can be considered under two subcases:
+  1. Either there's a direct path
+  2. Or there's a network in between which has different routing nodes where other packets might also arrive/travel through.
++ The papers that were referred to earlier focused on multiple users aiming for the access of the channel simultaneously and their priority was designated based on the type of packet and the delay incurred already.
++ But now we're not concerned about the channel access, rather we consider the scenario when the packet is already in the network and considering for the sake of illustration, two nodes in the transmitter side and receiver side each.
++ Also consider in the interim, two routers which can have data from multiple nodes, the data that routers process could be routine or time-critical.
++ While the data is moving from these routers, how is the priority order of transmitters decided? We wish to prioritize those devices which transmit delay critical data.
++ Propose a queueing theory problem with the pre-emptive/non pre-emptive priority.
+** Simple Formulation
++ Understand the way problem has been formulated.
++ Mathematical representation of the aforementioned problem.
++ Type of problem and how it can be solved.
++ Assumptions taken.
++ Refinement.
++ Understand scenario, not solution.
++ Novel Idea
++ Simple problem with believable simulations
+** Ideas
++ Formulate as an optimization problem I'm assuming
++ Are we supposed to compute the optimal path or just pick up the optimal URLLC packet sequence
++ Target network?
++ 
 * Shared by Ma'am
 ** Ultra Reliable Comm for Industrial IoT
 :LOGBOOK:
